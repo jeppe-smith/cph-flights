@@ -27,4 +27,4 @@ server.get('/api/arrivals', async (req, res) => {
 	}
 })
 
-server.listen(3000, () => console.log('server running on port 3000, yo'))
+server.listen(3001, () => console.log('server running on port 3001, yo'))
