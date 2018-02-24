@@ -4,7 +4,7 @@ const path = require('path')
 const server = express()
 const client = path.resolve(__dirname, '../client/dist')
 const view = path.resolve(client, 'index.html')
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3030
 
 // Controllers
 const fetchFlights = require('./controllers/fetch-flights')
