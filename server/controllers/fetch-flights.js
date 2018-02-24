@@ -27,10 +27,13 @@ async function fetchFlights(type, keyword = '', date = '', time = '') {
 			const time_expected = getElementText( $(row).find('.flights__table__col--time .v--mobile-only') )
 			const airline = getElementText( $(row).find('.flights__table__col--destination .v--mobile-only') )
 			const flight = getElementText( $(row).find('.flights__table__col--destination .main-flight') )
-			const from = getElementText( $(row).find('.flights__table__col--destination strong span') )
+			const tofrom = getElementText( $(row).find('.flights__table__col--destination strong span') )
+			const statusText = getElementText( $(row).find('.stylish-table__cell:nth-child(6)') )
 			const delayed = !!time_expected.length
-			
-			return { time, time_expected, delayed, airline, flight, from }
+			const city = tofrom.split(' - ')[0]
+			const airport = tofrom.split(' - ')[1]
+
+			return { time, time_expected, delayed, airline, flight, city, airport }
 		}).get()
 
 		return flights
