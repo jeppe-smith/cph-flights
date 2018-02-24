@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "echo \"Installing dependencies. Exciting!\" && cd server && npm i --no-progress && cd ../client && npm i --no-progress",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"blue,green\" \"cd server && npm run dev\" \"cd client && npm run dev\""
   },
