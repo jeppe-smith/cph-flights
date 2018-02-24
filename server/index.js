@@ -1,8 +1,19 @@
 const express = require('express')
+const history = require('connect-history-api-fallback')
+const path = require('path')
 const server = express()
+const client = path.resolve(__dirname, '../client/dist')
+const view = path.resolve(client, 'index.html')
+const port = process.env.NODE_ENV === 'development' ? 3001 : 3000
 
 // Controllers
 const fetchFlights = require('./controllers/fetch-flights')
+
+console.log(view)
+
+// Server configuration
+server.use( history() )
+server.use( express.static(client) ) // This must be after applying history function.
 
 // Routes
 server.get('/api/departures', async (req, res) => {
@@ -27,4 +38,4 @@ server.get('/api/arrivals', async (req, res) => {
 	}
 })
 
-server.listen(3001, () => console.log('server running on port 3001, yo'))
+server.listen(port, () => console.log(`server running on port ${port}, yo`))
