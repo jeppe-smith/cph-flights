@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development concurrently -k -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"blue,green\" \"cd server && npm run dev\" \"cd client && npm run dev\"",
     "build": "cd client && npm run build",
-    "start": "cross-env PORT=80 node server/index.js"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
